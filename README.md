@@ -43,15 +43,30 @@ cd PlotFarm
 cp .env.example .env
 ```
 
-Open `.env` and fill in values. The defaults work for local development but **change the passwords** before sharing or deploying.
+Open `.env` and fill in your values.
 
-### 3. Start the project
+### 3. Set up the frontend
+
+```bash
+cd frontend
+npx create-next-app@latest . --ts --tailwind --eslint --app --no-src-dir --import-alias "@/*"
+cd ..
+```
+
+### 4. Install backend dependencies
+
+```bash
+cd backend
+npm install
+cd ..
+```
+
+### 5. Start the project
 
 ```bash
 docker compose up --build -d
 ```
-
-The first build will take a few minutes as Docker downloads images and installs dependencies. Subsequent starts are much faster.
+The first time will take a while so be patient
 
 ---
 
